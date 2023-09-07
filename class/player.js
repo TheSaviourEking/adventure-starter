@@ -34,6 +34,17 @@ class Player {
     takeItem(itemName) {
 
         // Fill this in
+        // return Array.isArray(this.currentRoom.items);
+        for (let item of this.currentRoom.items) {
+            let index = this.currentRoom.items.indexOf(item);
+
+            if (index >= 0) { // start from 0 to prevent accidental removal of last element if item not in array
+                if (item.name === itemName) {
+                    this.items.push(item);
+                    this.currentRoom.items.splice(index, 1);
+                }
+            }
+        }
 
     }
 
