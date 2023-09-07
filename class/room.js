@@ -1,4 +1,3 @@
-const {Item} = require('./item');
 class Room {
 
     constructor(name, description) {
@@ -55,14 +54,6 @@ class Room {
 
 }
 
-/*********TEST */
-let item = new Item("rock", "just a simple rock");
-let room = new Room("Test Room", "A test room");
-// console.log(room);
-room.items.push(item);
-// console.log(room);
-
-console.log(room.getItemByName("rock"));
 module.exports = {
     Room,
 };
