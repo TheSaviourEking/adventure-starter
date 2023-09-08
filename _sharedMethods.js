@@ -8,12 +8,15 @@ function getItemByName(array, name) {
 
 function moveItem(itemName, sourceArr, destinationArr) {
     let item = getItemByName(sourceArr, itemName);
-    let itemIndex = sourceArr.indexOf(item);
 
-    if (itemIndex !== -1) {
-        if (item.name === itemName) {
-            destinationArr.push(item);
-            sourceArr.splice(itemIndex, 1);
+    if (item) {
+        let itemIndex = sourceArr.indexOf(item);
+
+        if (itemIndex !== -1) {
+            if (item.name === itemName) {
+                destinationArr.push(item);
+                sourceArr.splice(itemIndex, 1);
+            }
         }
     }
 }
