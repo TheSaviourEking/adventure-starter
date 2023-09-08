@@ -1,3 +1,4 @@
+const { getItemByName } = require("../sharedMethods");
 const { Food } = require("./food");
 
 class Player {
@@ -80,10 +81,12 @@ class Player {
     getItemByName(name) {
 
         // Fill this in
-        let playersItems = this.items;
-        for (let item of playersItems) {
-            if (item.name === name) return item;
-        }
+        // let playersItems = this.items;
+        // for (let item of playersItems) {
+        //     if (item.name === name) return item;
+        // }
+
+        return getItemByName(this.items, name)
     }
 }
 

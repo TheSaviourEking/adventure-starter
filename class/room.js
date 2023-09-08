@@ -1,3 +1,4 @@
+const { getItemByName } = require('../sharedMethods');
 class Room {
 
     constructor(name, description) {
@@ -46,11 +47,14 @@ class Room {
     getItemByName(name) {
 
         // Fill this in
-        let roomItems = this.items;
-        for (let item of roomItems) {
-            if (item.name === name) return item;
-        }
+        // let roomItems = this.items;
+        // for (let item of roomItems) {
+        //     if (item.name === name) return item;
+        // }
+
+        return getItemByName(this.items, name)
     }
+    // getItemByName(name);
 
 }
 
