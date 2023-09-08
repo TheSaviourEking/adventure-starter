@@ -1,4 +1,4 @@
-const { getItemByName } = require("../sharedMethods");
+const { getItemByName, moveItem } = require("../_sharedMethods");
 const { Food } = require("./food");
 
 class Player {
@@ -37,55 +37,22 @@ class Player {
     takeItem(itemName) {
 
         // Fill this in
-        // return Array.isArray(this.currentRoom.items);
-        for (let item of this.currentRoom.items) {
-            let index = this.currentRoom.items.indexOf(item);
-
-            if (index >= 0) { // start from 0 to prevent accidental removal of last element if item not in array
-                if (item.name === itemName) {
-                    this.items.push(item);
-                    this.currentRoom.items.splice(index, 1);
-                }
-            }
-        }
-
+        let currentRoomItems = this.currentRoom.items;
+        moveItem(itemName, currentRoomItems, this.items);
     }
 
     dropItem(itemName) {
-
-        // Fill this in
-        for (let item of this.items) {
-            let index = this.items.indexOf(item);
-
-            if (index >= 0) {
-                if (item.name === itemName) {
-                    this.currentRoom.items.push(item) // push to current room
-                    this.items.splice(index, 1); // remove from available items
-                }
-            }
-        }
+        moveItem(itemName, this.items, this.currentRoom.items)
     }
 
     eatItem(itemName) {
-        // Fill this in
-        for (let item of this.items) {
-            if (item instanceof Food) {
-                let index = this.items.indexOf(item);
-                if (item.name === itemName) {
-                    this.items.splice(index, 1);
-                }
-            }
+        let item = getItemByName(this.items, itemName);
+        if (item instanceof Food) {
+            moveItem(itemName, this.items, []);
         }
     }
 
     getItemByName(name) {
-
-        // Fill this in
-        // let playersItems = this.items;
-        // for (let item of playersItems) {
-        //     if (item.name === name) return item;
-        // }
-
         return getItemByName(this.items, name)
     }
 }

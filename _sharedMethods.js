@@ -6,19 +6,19 @@ function getItemByName(array, name) {
     return array.find(item => item.name === name);
 }
 
-// function moveItem(itemName, sourceArray, targetArray) {
-//     const item = getItemByName(sourceArray, itemName);
+function moveItem(itemName, sourceArr, destinationArr) {
+    let item = getItemByName(sourceArr, itemName);
+    let itemIndex = sourceArr.indexOf(item);
 
-//     if (item) {
-//         const index = sourceArray.indexOf(item);
-//         if (index !== -1) {
-//             sourceArray.splice(index, 1);
-//             targetArray.push(item);
-//         }
-//     }
-// }
+    if (itemIndex !== -1) {
+        if (item.name === itemName) {
+            destinationArr.push(item);
+            sourceArr.splice(itemIndex, 1);
+        }
+    }
+}
 
 module.exports = {
     getItemByName,
-    // moveItem
+    moveItem
 }
