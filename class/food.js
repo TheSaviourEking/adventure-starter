@@ -1,13 +1,16 @@
 
 // FILL THIS OUT
 
-class Food {
+const { Item } = require("./item");
+
+class Food extends Item{
   constructor(name, description) {
-    this.name = name;
-    this.description = description;
+    super(name, description);
   }
 }
 
+let food = new Food("sandwich", "a delicious sandwich");
+console.log(food);
 module.exports = {
   Food,
 };
