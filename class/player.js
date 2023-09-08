@@ -51,6 +51,16 @@ class Player {
     dropItem(itemName) {
 
         // Fill this in
+        for (let item of this.items) {
+            let index = this.items.indexOf(item);
+
+            if (index >= 0) {
+                if (item.name === itemName) {
+                    this.currentRoom.items.push(item) // push to current room
+                    this.items.splice(index, 1); // remove from available items
+                }
+            }
+        }
     }
 
     eatItem(itemName) {
