@@ -46,7 +46,7 @@ class World {
             let newItem;
 
             if (itemData.isFood) {
-                console.log("ERROR: Food not supported yet.");
+                // console.log("ERROR: Food not supported yet.");
                 // Fill this in
                 newItem = new Food(itemData.name, itemData.description)
             } else {
@@ -69,9 +69,9 @@ world.loadWorld(worldData);
 let room = world.rooms[2];
 // console.log(room)
 roomItems = room.items;
-console.log(roomItems)
+// console.log(roomItems)
 
-console.log(roomItems[0].name);
+// console.log(roomItems[0].name);
 
 module.exports = {
   World,
