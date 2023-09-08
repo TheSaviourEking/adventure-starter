@@ -6,7 +6,7 @@ const {Item} = require("../class/item.js");
 const {Food} = require("../class/food.js");
 const { World } = require("../class/world")
 
-const worldData = require('../data/world-data')
+const worldData = require('../data/world-data');
 
 describe ('Item', function () {
 
@@ -150,7 +150,7 @@ describe ('Food', function () {
     let world = new World();
     world.loadWorld(worldData);
 
-    room = world.rooms[2];
+    let room = world.rooms[2];
     roomItems = room.items;
     expect(roomItems[0].name).to.equal('sandwich')
   });

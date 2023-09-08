@@ -2,6 +2,8 @@ const { Room } = require('./room');
 const { Item } = require('./item');
 const { Food } = require('./food');
 
+const worldData = require('../data/world-data');
+
 class World {
     constructor() {
         this.rooms = {};
@@ -46,7 +48,7 @@ class World {
             if (itemData.isFood) {
                 console.log("ERROR: Food not supported yet.");
                 // Fill this in
-                return;
+                newItem = new Food(itemData.name, itemData.description)
             } else {
                 newItem = new Item(itemData.name, itemData.description);
             }
@@ -57,6 +59,19 @@ class World {
 
     }
 }
+
+let world = new World();
+// console.log(worldData)
+// console.log(world);
+world.loadWorld(worldData);
+
+
+let room = world.rooms[2];
+// console.log(room)
+roomItems = room.items;
+console.log(roomItems)
+
+console.log(roomItems[0].name);
 
 module.exports = {
   World,
